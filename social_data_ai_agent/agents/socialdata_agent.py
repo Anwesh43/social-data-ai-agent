@@ -1,5 +1,5 @@
 from pydantic_ai import Agent 
-from tools.social_data_tools import getVerifiedFollowers, getUserFollowings, getArticleDetails, getThread, getUserProfile, getUserTweets, createPDFFromHTMLStr
+from tools.social_data_tools import getVerifiedFollowers, getUserFollowings, getArticleDetails, getThread, getUserProfile, getUserTweets, createPDFFromHTMLStr, getTweetDetails
 from dotenv import load_dotenv 
 from prompts.social_data_prompt import SYSTEM_PROMPT
 
@@ -7,7 +7,7 @@ load_dotenv()
 
 agent = Agent(
     model = 'openai:gpt-5.2',
-    tools = [getVerifiedFollowers, getUserFollowings, getArticleDetails, getThread, getUserProfile, getUserTweets, createPDFFromHTMLStr],
+    tools = [getVerifiedFollowers, getUserFollowings, getArticleDetails, getThread, getUserProfile, getUserTweets, createPDFFromHTMLStr, getTweetDetails],
     system_prompt = SYSTEM_PROMPT
 )
 

@@ -133,4 +133,11 @@ class SocialDataService:
             return response 
         except Exception as e:
             return self._handleError(e)
+
+    def getTweetDetails(self, tweetId: str):
+        try:
+            response = self.client.getCall(f"tweets/{tweetId}", qpParams={}, headers=self._getHeaders())
+            return response 
+        except Exception as e:
+            return self._handleError(e)
         

@@ -89,3 +89,7 @@ def createPDFFromHTMLStr(htmlStr : str, fileName : str):
         "status": "success",
         "message": f"written html data to pdf file"
     }
+
+def getTweetDetails(tweetId : str):
+    print(f"Calling getTweetDetails for {tweetId}")
+    return sds.getTweetDetails(tweetId=tweetId)
