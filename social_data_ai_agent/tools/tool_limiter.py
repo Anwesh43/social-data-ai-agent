@@ -16,7 +16,7 @@ class ToolLimiter:
 
     def isLimitReached(self, toolName : str):
         if toolName in self.toolCallMap:
-            return self.toolCallMap[toolName]["count"] < self.toolCallMap[toolName]["limit"]
+            return self.toolCallMap[toolName]["count"] >= self.toolCallMap[toolName]["limit"]
         return False 
 
     def isKeyPresent(self, toolName : str):
