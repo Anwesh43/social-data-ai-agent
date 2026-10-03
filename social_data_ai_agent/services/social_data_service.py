@@ -127,7 +127,7 @@ class SocialDataService:
         except Exception as e:
             return self._handleError(e)
 
-    def getArticle(self, articleId :str):
+    def getArticleDetails(self, articleId :str):
         try:
             response = self.client.getCall(f"article/{articleId}", qpParams={}, headers = self._getHeaders())
             return response 
