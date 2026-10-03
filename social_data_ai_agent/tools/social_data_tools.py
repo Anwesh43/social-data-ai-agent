@@ -24,10 +24,10 @@ def searchForTweets(query : str, cursorId : str = '', type : str = 'Latest'):
     print(f"Calling searchQuery tool {query} and {cursorId}")
     return sds.getTopSearchResults(query = query, cursorId=cursorId, type = type)
 
-def getThread(threadId : str, cursorId : str = '')
+def getThread(threadId : str, cursorId : str = ''):
     print(f"Calling getThread for {threadId} and {cursorId}")
     return sds.getThread(threadId=threadId, cursorId=cursorId)
 
 def getArticleDetails(articleId : str):
     print(f"Calling getArticleDetails for {articleId}")
-    return sds.getArticle(articleId=articleId)
+    return sds.getArticleDetails(articleId=articleId)
