@@ -1,5 +1,7 @@
 from services.social_data_service import SocialDataService 
 from tools.tool_limiter import ToolLimiter
+from playwright.sync_api import sync_playwright 
+
 
 sds = SocialDataService()
 
@@ -74,3 +76,16 @@ def getThread(threadId : str, cursorId : str = ''):
 def getArticleDetails(articleId : str):
     print(f"Calling getArticleDetails for {articleId}")
     return sds.getArticleDetails(articleId=articleId)
+
+def createPDFFromHTMLStr(htmlStr : str, fileName : str):
+    print(f"Calling createPDFFromHTMLStr tool with {fileName}")
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page()
+        page.set_content(htmlStr)
+        page.pdf(path=fileName, format='A4', print_background=True)
+        browser.close()
+    return {
+        "status": "success",
+        "message": f"written html data to pdf file"
+    }
